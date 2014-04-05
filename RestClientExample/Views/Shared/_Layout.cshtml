@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title Rest Client</title>
+    <link href="~/Mundo.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/styles")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Styles.Render("~/Content/bootstrap/css")
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0;">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-bootsnipp-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="animbrand"><a class="navbar-brand" href="/Request/Index">PostMan | Clon</a></div>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-bootsnipp-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="/Request/Index"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    </ul>
+
+
+                    <div class="nav navbar-nav navbar-right">
+
+                        <div class="nav navbar-nav navbar-right"">
+                            <section id="login">
+                                @Html.Partial("_LoginPartial")
+                            </section>
+                        </div>
+              
+                    </div>
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+
+        </nav>
+       
+
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+       
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+            
+        </section>
+        
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="center">
+                <p id="footer" class="text-center">&copy; @DateTime.Now.Year - Created by LilBra</p>
+                
+            </div>
+        </div>
+    </footer>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

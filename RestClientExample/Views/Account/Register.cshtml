@@ -1,0 +1,57 @@
+﻿@model RestClientExample.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+<style>
+    #button {
+        height:3em;   
+        width: 21em;
+    }
+    #p {
+        text-align:center;
+        color:green;
+    }
+</style>
+<div class="panel">
+    <br />
+    <h1 style="text-align:center;">
+        @ViewBag.Title
+    </h1>
+    <h2>+ Create a new account.</h2>
+    <br />
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <fieldset>
+                <legend class="fieldset">Formulario de registro</legend>
+               
+                <div class="form-group">
+                    <p id="p">@Html.LabelFor(m => m.UserName)</p>
+                    <input  data-val="true" data-val-required="El campo Nombre de usuario es obligatorio."  type="text" name="UserName" id="UserName" class="form-control input-lg" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <p id="p">@Html.LabelFor(m => m.Password)</p>
+                    <input data-val="true" data-val-required="El campo Contraseña es obligatorio." data-val-length-max="100" data-val-length-min="6" type="password" name="Password" id="Password" class="form-control input-lg" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <p id="p">@Html.LabelFor(m => m.ConfirmPassword)</p>
+                    <input data-val="true" data-val-required="El campo Confirmar Contraseña es obligatorio." data-val-equalto-other="*.Password" type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control input-lg" placeholder="Confirm your Password">
+                </div>
+                <hr />  
+		           <div class="form-group">
+	                <input id="button" type="submit" class="btn btn-large btn-success btn-block" value="Register">
+		        </div>
+            </fieldset>
+        }
+    </div>
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

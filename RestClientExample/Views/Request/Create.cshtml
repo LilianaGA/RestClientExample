@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+        <div class="editor-label">
+            <label>Name</label>
+            
+        </div>
+        <div class="editor-field">
+            <input id="name" name="name"/>
+        </div>
+
+        <div class="editor-label">
+            <label>Url base</label>
+            
+        </div>
+        <div class="editor-field">
+            <input id="url" name="url"/>
+        </div>
+
+         <div class="editor-label">
+            <label>Action</label>
+            
+        </div>
+        <div class="editor-field">
+            <input id="action" name="action"/>
+        </div>
+    <hr />  
+        <button class="btn btn-primary"  id="create">
+            Create
+        </button>
+    <hr />          
+@using (Html.BeginForm()) 
+    {
+    <p>        
+       <button class="btn btn-secondary"> @Html.ActionLink("Back to List", "Index")</button>
+    </p>  
+    }           
+</div>
+<script src="@Url.Content("~/Scripts/Javascript/create.js")" type="text/javascript"></script>
+
+
